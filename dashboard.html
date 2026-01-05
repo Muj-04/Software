@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - RetailInsight</title>
+  <link rel="stylesheet" href="css/style.css">  <!--تصميم الواجهة (layout + cards + charts)-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--مكتبة تشارتس للرسومات-->>
+  <script defer src="js/sampleData.js"></script>
+  <script defer src="js/charts.js"></script><!--برسم السيلز والكاتيغوري-->
+</head>
+
+<body class="layout">
+  <div class="sidebar">
+    <h2>RetailInsight</h2>
+    <a class="active" href="dashboard.html">Dashboard</a>
+    <a href="products.html">Products</a>
+    <a href="customers.html">Customers</a>
+    <a href="forecasting.html">Forecasting</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="content">
+    <h1>Business Performance Overview</h1>
+
+    <div class="card-container">
+      <div class="card">   <!--KPI cards-->
+        <h4>Total Revenue</h4>
+        <p><strong>$152,900</strong></p>
+      </div>
+      <div class="card">
+        <h4>Monthly Sales Growth</h4>
+        <p><strong>+12.4%</strong></p>
+      </div>
+      <div class="card">
+        <h4>Active Customers</h4>
+        <p><strong>4,321</strong></p>
+      </div>
+      <div class="card">
+        <h4>Top Product</h4>
+        <p><strong>Wireless Earbuds</strong></p>
+      </div>
+    </div>
+
+    <div class="table-box">
+      <canvas id="salesChart"></canvas> <!--الرسم البياني-->
+    </div>
+
+    <br>
+
+    <div class="table-box">
+      <canvas id="categoryChart"></canvas> <!--رسم بياني للمبيعات عبر الزمن-->>
+    </div>
+  </div>
+</body>
+</html>

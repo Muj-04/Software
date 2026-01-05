@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customers - RetailInsight</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/sampleData.js"></script>
+  <script defer src="js/main.js"></script>  <!--تطبيق بيانات تجريبية-->
+</head>
+
+<body class="layout">
+  <div class="sidebar">
+    <h2>RetailInsight</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="products.html">Products</a>
+    <a class="active" href="customers.html">Customers</a>
+    <a href="forecasting.html">Forecasting</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="content">
+    <h1>Customer Insights</h1> <!--محتوى الصفحه تاعتنا-->
+
+    <div class="table-box">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Purchases</th>
+        </tr>
+        <tbody id="customersTable"></tbody>
+      </table>
+    </div>
+  </div>
+<!--تحت بنشبكو مع الجافا-->
+  <script>  
+    loadCustomers();
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+order_id,order_date,product_name,customer_id,quantity,price,cost
+1001,1/5/2025,iPhone 14,1,2,800,600
+1002,1/7/2025,Samsung Galaxy S23,2,1,750,550
+1003,2/10/2025,iPhone 14,1,1,800,600
+1004,2/15/2025,AirPods Pro,3,3,250,180
+1005,3/1/2025,Samsung Galaxy S23,2,2,750,550
+1006,3/5/2025,AirPods Pro,3,15,250,180

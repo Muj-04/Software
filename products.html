@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products - RetailInsight</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="layout">
+  <div class="sidebar">
+    <h2>RetailInsight</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a class="active" href="products.html">Products</a>
+    <a href="customers.html">Customers</a>
+    <a href="forecasting.html">Forecasting</a>
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="content">
+    <h1>Top Selling Products</h1>
+
+    <!-- قراءة ال csv  -->
+    <input type="file" id="csvFile" accept=".csv">
+    <br><br>
+
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Units Sold</th>
+            <th>Revenue</th>
+          </tr>
+        </thead>
+        <tbody id="productsTable"></tbody>      <!-- هون مكان عرض البيانات تاعت الفايل-->
+      </table>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("csvFile").addEventListener("change", function (e) {
+      const file = e.target.files[0]; // هون بربط الواجهة بالبرمجه
+      if (!file) return;
+
+      const reader = new FileReader();  //قراءة الملف تاع العينات
+
+      reader.onload = function (event) {
+        const lines = event.target.result.split("\n").slice(1);
+        const table = document.getElementById("productsTable");
+        table.innerHTML = "";
+
+        const products = {};  
+
+        lines.forEach(line => {
+          const cols = line.split(",");
+          if (cols.length < 7) return;
+
+          const product = cols[2]; //csvوبنعمل مابينج معcsv , هون بنحدد اسم المنتج وكميتو وسعر
+          const quantity = parseInt(cols[4]);
+          const price = parseFloat(cols[5]);
+
+          if (isNaN(quantity) || isNaN(price)) return;
+
+          if (!products[product]) {
+            products[product] = { units: 0, revenue: 0 };
+          }
+
+          products[product].units += quantity; //هون الحسابات الفعليه بتصير زي مثلا الكمية مضروبه بالسعر وبعطينا الايرادات
+          products[product].revenue += quantity * price;
+        });
+
+        for (let p in products) {
+          table.innerHTML += `  <!-- هون بضيف الصفوف للجدول وبرتبو -->
+            <tr>
+              <td>${p}</td>
+              <td>${products[p].units}</td>
+              <td>$${products[p].revenue}</td>
+            </tr>
+          `;
+        }
+      };
+
+      reader.readAsText(file);
+    });
+  </script>
+
+</body>
+</html>

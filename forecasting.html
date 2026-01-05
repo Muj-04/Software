@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forecasting - RetailInsight</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!---يربط تصميم الموقع (الألوان، الخطوط، layout) -->
+  <script defer src="js/sampleData.js"></script>
+  <script defer src="js/charts.js"></script> <!--بقرا البيانات وبنشئ الرسم البياني-->
+</head>
+
+<body class="layout">
+  <div class="sidebar"> <!--هون السايد بار عشان نتنقل بين الصفحات-->
+    <h2>RetailInsight</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="products.html">Products</a>
+    <a href="customers.html">Customers</a>
+    <a class="active" href="forecasting.html">Forecasting</a> <!--صفحة التنبؤ-->
+    <a href="index.html">Logout</a>
+  </div>
+
+  <div class="content">
+    <h1>Sales Forecasting Model</h1>
+
+    <div class="table-box">
+      <canvas id="forecastChart"></canvas> <!--هون بتنرسم التوقعات-->
+    </div>
+  </div>
+</body>
+</html>
